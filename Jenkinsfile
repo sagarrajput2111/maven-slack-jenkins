@@ -41,7 +41,7 @@ pipeline {
 
     stage('deploying code to tomcat') {
       steps {
-        deploy(adapters: [tomcat9(credentialsId: 'tomcatcreds', path: '', url: 'http://20.197.32.141:8081/')], war: '**/*war')
+        deploy(adapters: [tomcat9(credentialsId: 'tomcatpass', path: '', url: 'http://20.197.32.141:8081/')], war: '**/*war')
       }
     }
 
