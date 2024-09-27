@@ -30,16 +30,4 @@ jobs:
     - name: Build with Maven
       run: mvn -B package --file pom.xml
 
-    # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
-    - name: scp ssh pipelines
-      uses: cross-the-world/ssh-scp-ssh-pipelines@latest
-      with:
-       host: ${{ secrets.HOST }}
-       user: ${{ secrets.USERNAME }}
-       pass: ${{ secrets.PASSWORD }}
-       port: ${{ secrets.PORT }}
-       scp: |
-        ./target/*.war => /tmp/
-       last_ssh: |
-        ls -lart /tmp
-
+    
