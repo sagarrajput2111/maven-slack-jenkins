@@ -2,24 +2,10 @@ pipeline {
   agent any
   stages {
     stage('Fetching code from github') {
-      parallel {
-        stage('Fetching code from github') {
           steps {
-            
-
-            git 'https://github.com/sagarrajput2111/Maven-build-jenkins.git'
+            git(url: 'https://github.com/sagarrajput2111/maven-slack-jenkins.git', branch: 'master', credentialsId: 'git_ssh_key')
           }
         }
-
-        stage('fetching code') {
-          steps {
-            git(url: 'https://github.com/sagarrajput2111/maven-slack-jenkins.git', branch: 'master', credentialsId: 'githubmaven')
-          }
-        }
-
-      }
-    }
-
     stage('generating artifacts') {
       
         
