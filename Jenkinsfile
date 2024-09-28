@@ -5,7 +5,8 @@ pipeline {
       parallel {
         stage('Fetching code from github') {
           steps {
-           
+            
+
             git 'https://github.com/sagarrajput2111/Maven-build-jenkins.git'
           }
         }
@@ -20,14 +21,12 @@ pipeline {
     }
 
     stage('generating artifacts') {
-      parallel {
-        stage('generating artifacts') {
+      
+        
           steps {
             sh 'mvn clean install'
           }
-        }
-
-     
+    }
 
     stage('deploying code to tomcat') {
       steps {
@@ -36,4 +35,5 @@ pipeline {
     }
 
   }
+  
 }
